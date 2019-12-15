@@ -11,7 +11,7 @@ For the legal security we do not take over guarantee!
 
 ![](shop1.png)
 
-Technic behind:
+*Technic behind:*
 If the user enter the page the first time, the system test if a special cookie set on the computer 
 the user use. If no cookie present, the system won`t display cookies the system manage. The system collect
 all information and display a popup to the user where he can select cookies he like to allow. After the user
@@ -113,29 +113,28 @@ This extension was created for Oxid 6.x.
         
 5. Make following changes:
 
-5.1 /source/Application/views/wave/tpl/layout/base.tpl right before </head>
+    1. /source/Application/views/wave/tpl/layout/base.tpl right before &lt;/head&gt;
 
             [{/if}]
             [{* rs cookie manager start *}]
             [{block name="rscookiemanager1"}][{/block}]
             [{* rs cookie manager end *}]
-        </head>
+            </head>
 
-5.1 /source/Application/views/wave/tpl/layout/base.tpl right after <body ...>
+    2. /source/Application/views/wave/tpl/layout/base.tpl right after &lt;body ...&gt;
 
-        <body class="cl-[{$oView->getClassName()}][{if $smarty.get.plain == '1'}] popup[{/if}][{if $blIsCheckout}] is-checkout[{/if}][{if $oxcmp_user && $oxcmp_user->oxuser__oxpassword->value}] is-logged-in[{/if}]">
-
+            <body class="cl-[{$oView->getClassName()}][{if $smarty.get.plain == '1'}] popup[{/if}][{if $blIsCheckout}] is-checkout[{/if}][{if $oxcmp_user && $oxcmp_user->oxuser__oxpassword->value}] is-logged-in[{/if}]">
             [{* rs cookie manager *}]
             [{block name="rscookiemanager2"}][{/block}]
             [{* rs cookie manager end *}]
 
-5.2 /source/Application/views/wave/tpl/layout/base.tpl right before </body>
+    3. /source/Application/views/wave/tpl/layout/base.tpl right before &lt;/body&gt;
     
-                [{* rs cookie manager *}]
-                [{block name="rscookiemanager3"}][{/block}]
-                [{* rs cookie manager end *}]
+            [{* rs cookie manager *}]
+            [{block name="rscookiemanager3"}][{/block}]
+            [{* rs cookie manager end *}]
             </body>
-        </html>
+            </html>
 
 6. Enable module in the oxid admin area, Extensions => Modules
 
