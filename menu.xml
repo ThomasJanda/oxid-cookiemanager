@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="ISO-8859-15"?>
+<OX>
+    <OXMENU id="navi_rs_company">
+        <MAINMENU id="navi_rs_cookiemanager">
+            <SUBMENU id="navi_rs_cookiemanager_group" 
+                     cl="rs_formedit_fullpage_lang" 
+                     clparam="project=rs/cookiemanager/formeditprojects/rs_cookie_manager_group.cpf" />
+            <SUBMENU id="navi_rs_cookiemanager_pixel" 
+                     cl="rs_formedit_fullpage_lang" 
+                     clparam="project=rs/cookiemanager/formeditprojects/rs_cookie_manager.cpf" />
+            <SUBMENU id="navi_rs_cookiemanager_track" 
+                     cl="rs_formedit_fullpage_lang" 
+                     clparam="project=rs/cookiemanager/formeditprojects/rs_cookie_manager_track.cpf" />
+        </MAINMENU>
+    </OXMENU>
+</OX>

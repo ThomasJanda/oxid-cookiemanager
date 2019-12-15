@@ -1,0 +1,24 @@
+{
+  "name": "rs/cookiemanager",
+  "description": "cookiemanager",
+  "type": "oxideshop-module",
+  "keywords": ["oxid", "modules", "eShop", "cookie", "popup"],
+  "homepage": "https://www.reisacher-software.de",
+  "license": [
+    "GPL-3.0-only",
+    "proprietary"
+  ],
+  "extra": {
+    "oxideshop": {
+      "target-directory": "rs/cookiemanager"
+    }
+  },
+  "require": {
+    "php": ">=5.3"
+  },
+  "autoload": {
+    "psr-4": {
+      "rs\\cookiemanager\\": "../../../source/modules/rs/cookiemanager"
+    }
+  }
+}
