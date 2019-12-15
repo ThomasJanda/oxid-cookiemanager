@@ -11,7 +11,8 @@ For the legal security we do not take over guarantee!
 
 ![](shop1.png)
 
-*Technic behind:*
+**Technic behind:**
+
 If the user enter the page the first time, the system test if a special cookie set on the computer 
 the user use. If no cookie present, the system won`t display cookies the system manage. The system collect
 all information and display a popup to the user where he can select cookies he like to allow. After the user
@@ -20,7 +21,7 @@ will save on the computer the user use to identify in the future if the user agr
 the modul save the settings the user make, so in the future it will only add the cookies to the page which 
 agreed by the user.
 
-This extension was created for Oxid 6.x.
+This extension was created for Oxid 6.x. (Wave theme)
 
 ## Requirements
 
@@ -111,7 +112,7 @@ This extension was created for Oxid 6.x.
         ('rs_google_analytics', 'rs_nessesary', 1, 'Google analytics', 'Google analytics', NULL, NULL, 'Wir können Ihnen personalisierte Inhalte, passend zu Ihren Interessen anzuzeigen.\r\n\r\nSomit können wir Ihnen Angebote präsentieren, die für Sie besonders relevant sind.', NULL, NULL),
         ('rs_shop', 'rs_statistic', 1, 'Shop', 'Shop system', NULL, NULL, 'Das Shop system speichert in diesen Cookies z.B. den Inhalt Ihres Warenkorbs oder Ihre Spracheinstellung.\r\n\r\nNotwendige Cookies können nicht deaktiviert werden, da unser Shop ansonsten nicht funktionieren würde.', NULL, NULL);
         
-5. Make following changes:
+5. Make following changes template changes:
 
     1. /source/Application/views/wave/tpl/layout/base.tpl right before &lt;/head&gt;
 
