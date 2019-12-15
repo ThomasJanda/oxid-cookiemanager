@@ -11,6 +11,15 @@ For the legal security we do not take over guarantee!
 
 ![](shop1.png)
 
+Technic behind:
+If the user enter the page the first time, the system test if a special cookie set on the computer 
+the user use. If no cookie present, the system won`t display cookies the system manage. The system collect
+all information and display a popup to the user where he can select cookies he like to allow. After the user
+agree the cookie settings, the page will reload and display only the cookies the user allowed. For this, a cookie
+will save on the computer the user use to identify in the future if the user agreed or not. In the database, 
+the modul save the settings the user make, so in the future it will only add the cookies to the page which 
+agreed by the user.
+
 This extension was created for Oxid 6.x.
 
 ## Requirements
@@ -57,8 +66,12 @@ This extension was created for Oxid 6.x.
         `rsident` varchar(250) DEFAULT NULL,
         `rstitle` varchar(250) DEFAULT NULL,
         `rstitle_1` varchar(250) DEFAULT NULL,
+        `rstitle_2` varchar(250) DEFAULT NULL,
         `rsdescription` text,
         `rsdescription_1` text,
+        `rsdescription_2` text,
+        `rsrequired` tinyint(1) DEFAULT '0',
+        `rsorder` int(11) DEFAULT '0',
         PRIMARY KEY (`oxid`)
         ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -88,12 +101,42 @@ This extension was created for Oxid 6.x.
         KEY `f_rs_cookie_manager` (`f_rs_cookie_manager`)
         ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-        INSERT INTO `rs_cookie_manager` 
-        (`oxid`, `f_rs_cookie_manager_group`, `rsactive`, `rsident`, `rstitle`, `rstitle_1`, `rstitle_2`, `rsdescription`, `rsdescription_1`, `rsdescription_2`) 
-        VALUES 
-        ('rs_shop', NULL, '0', 'Shop', NULL, NULL, NULL, NULL, NULL, NULL), 
-        ('rs_google_analytics', NULL, '0', 'Google analytics', NULL, NULL, NULL, NULL, NULL, NULL);
-        
-5. Enable module in the oxid admin area, Extensions => Modules
+        INSERT INTO `rs_cookie_manager_group` (`oxid`, `rsident`, `rstitle`, `rstitle_1`, `rstitle_2`, `rsdescription`, `rsdescription_1`, `rsdescription_2`, `rsrequired`, `rsorder`) 
+        VALUES
+        ('rs_nessesary', 'Notwendig', 'Notwendige Cookies', NULL, NULL, 'Diese Cookies sind für den Betrieb der Seite unbedingt notwendig.', NULL, NULL, 1, 0),
+        ('rs_statistic', 'Statistik', 'Statistik', NULL, NULL, 'Um unser Artikelangebot weiter zu verbessern, erfassen wir anonymisierte Daten für Statistiken und Analysen.\r\n\r\nAufgrund dieser Statistiken können wir unsere Angebot für Sie optimieren.', NULL, NULL, 0, 1);
 
-6. Rebuild views, clear complete cache.
+        INSERT INTO `rs_cookie_manager` (`oxid`, `f_rs_cookie_manager_group`, `rsactive`, `rsident`, `rstitle`, `rstitle_1`, `rstitle_2`, `rsdescription`, `rsdescription_1`, `rsdescription_2`) 
+        VALUES
+        ('rs_google_analytics', 'rs_nessesary', 1, 'Google analytics', 'Google analytics', NULL, NULL, 'Wir können Ihnen personalisierte Inhalte, passend zu Ihren Interessen anzuzeigen.\r\n\r\nSomit können wir Ihnen Angebote präsentieren, die für Sie besonders relevant sind.', NULL, NULL),
+        ('rs_shop', 'rs_statistic', 1, 'Shop', 'Shop system', NULL, NULL, 'Das Shop system speichert in diesen Cookies z.B. den Inhalt Ihres Warenkorbs oder Ihre Spracheinstellung.\r\n\r\nNotwendige Cookies können nicht deaktiviert werden, da unser Shop ansonsten nicht funktionieren würde.', NULL, NULL);
+        
+5. Make following changes:
+
+5.1 /source/Application/views/wave/tpl/layout/base.tpl right before </head>
+
+            [{/if}]
+            [{* rs cookie manager start *}]
+            [{block name="rscookiemanager1"}][{/block}]
+            [{* rs cookie manager end *}]
+        </head>
+
+5.1 /source/Application/views/wave/tpl/layout/base.tpl right after <body ...>
+
+        <body class="cl-[{$oView->getClassName()}][{if $smarty.get.plain == '1'}] popup[{/if}][{if $blIsCheckout}] is-checkout[{/if}][{if $oxcmp_user && $oxcmp_user->oxuser__oxpassword->value}] is-logged-in[{/if}]">
+
+            [{* rs cookie manager *}]
+            [{block name="rscookiemanager2"}][{/block}]
+            [{* rs cookie manager end *}]
+
+5.2 /source/Application/views/wave/tpl/layout/base.tpl right before </body>
+    
+                [{* rs cookie manager *}]
+                [{block name="rscookiemanager3"}][{/block}]
+                [{* rs cookie manager end *}]
+            </body>
+        </html>
+
+6. Enable module in the oxid admin area, Extensions => Modules
+
+7. Rebuild views, clear complete cache.
