@@ -160,7 +160,7 @@
                 "top": "130",
                 "height": "20",
                 "width": "200",
-                "zindex": "15",
+                "zindex": "1",
                 "containerid": "tab5df159532995a"
             },
             "element5df15b81c1393": {
@@ -190,7 +190,7 @@
                 "top": "130",
                 "height": "20",
                 "width": "410",
-                "zindex": "15",
+                "zindex": "1",
                 "containerid": "tab5df159532995a"
             },
             "element5df15bb0b2878": {
@@ -210,7 +210,7 @@
                 "top": "160",
                 "height": "20",
                 "width": "200",
-                "zindex": "15",
+                "zindex": "1",
                 "containerid": "tab5df159532995a"
             },
             "element5df15bbfa1d90": {
@@ -236,7 +236,7 @@
                 "top": "160",
                 "height": "150",
                 "width": "410",
-                "zindex": "15",
+                "zindex": "1",
                 "containerid": "tab5df159532995a"
             },
             "element5df15c0896eca": {
@@ -257,7 +257,7 @@
                 "top": "320",
                 "height": "30",
                 "width": "200",
-                "zindex": "15",
+                "zindex": "1",
                 "containerid": "tab5df159532995a"
             },
             "element5df15c11a70c4": {
@@ -280,7 +280,7 @@
                 "top": "320",
                 "height": "30",
                 "width": "200",
-                "zindex": "15",
+                "zindex": "1",
                 "containerid": "tab5df159532995a"
             },
             "element5df15c30ca809": {
@@ -289,11 +289,11 @@
                     "taborder": "1100"
                 },
                 "id": "element5df15c30ca809",
-                "left": "640",
+                "left": "670",
                 "top": "10",
                 "height": "240",
                 "width": "200",
-                "zindex": "1",
+                "zindex": "16",
                 "containerid": "tab5df159532995a"
             },
             "element5df162b41a6a2": {
@@ -381,7 +381,7 @@
                 "top": "100",
                 "height": "20",
                 "width": "200",
-                "zindex": "14",
+                "zindex": "1",
                 "containerid": "tab5df159532995a"
             },
             "element5df40fb9552fc": {
@@ -431,6 +431,106 @@
                 "top": "100",
                 "height": "20",
                 "width": "200",
+                "zindex": "1",
+                "containerid": "tab5df159532995a"
+            },
+            "element5df6bd1aec060": {
+                "classname": "help",
+                "property": {
+                    "helptext": "Unique name",
+                    "maxwidth": "300",
+                    "picture": "1",
+                    "hasparentcontrol": "",
+                    "customerid": "",
+                    "languageid": "",
+                    "invisible": "0",
+                    "style": ""
+                },
+                "id": "element5df6bd1aec060",
+                "left": "640",
+                "top": "40",
+                "height": "20",
+                "width": "20",
+                "zindex": "1",
+                "containerid": "tab5df159532995a"
+            },
+            "element5df6bd3fb33bc": {
+                "classname": "help",
+                "property": {
+                    "helptext": "If required, the user must allow all the cookies behind this goup.",
+                    "maxwidth": "300",
+                    "picture": "1",
+                    "hasparentcontrol": "",
+                    "customerid": "",
+                    "languageid": "",
+                    "invisible": "0",
+                    "style": ""
+                },
+                "id": "element5df6bd3fb33bc",
+                "left": "430",
+                "top": "70",
+                "height": "20",
+                "width": "20",
+                "zindex": "1",
+                "containerid": "tab5df159532995a"
+            },
+            "element5df6bd8820043": {
+                "classname": "help",
+                "property": {
+                    "helptext": "Position in the list.",
+                    "maxwidth": "300",
+                    "picture": "1",
+                    "hasparentcontrol": "",
+                    "customerid": "",
+                    "languageid": "",
+                    "invisible": "0",
+                    "style": ""
+                },
+                "id": "element5df6bd8820043",
+                "left": "430",
+                "top": "100",
+                "height": "20",
+                "width": "20",
+                "zindex": "1",
+                "containerid": "tab5df159532995a"
+            },
+            "element5df6bda443ddd": {
+                "classname": "help",
+                "property": {
+                    "helptext": "Title in the popup",
+                    "maxwidth": "300",
+                    "picture": "1",
+                    "hasparentcontrol": "",
+                    "customerid": "",
+                    "languageid": "",
+                    "invisible": "0",
+                    "style": ""
+                },
+                "id": "element5df6bda443ddd",
+                "left": "640",
+                "top": "130",
+                "height": "20",
+                "width": "20",
+                "zindex": "1",
+                "containerid": "tab5df159532995a"
+            },
+            "element5df6bdb4a470c": {
+                "classname": "help",
+                "property": {
+                    "helptext": "Description what this group means. Will display in the popup.",
+                    "maxwidth": "300",
+                    "picture": "1",
+                    "hasparentcontrol": "",
+                    "customerid": "",
+                    "languageid": "",
+                    "invisible": "0",
+                    "style": ""
+                },
+                "id": "element5df6bdb4a470c",
+                "left": "640",
+                "top": "160",
+                "height": "20",
+                "width": "20",
                 "zindex": "1",
                 "containerid": "tab5df159532995a"
             }

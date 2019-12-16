@@ -31,7 +31,7 @@ class rs_cookie_manager_item_list extends \OxidEsales\EshopCommunity\Core\Model\
         die("");
         return parent::selectString($sql, $parameters );
     }
-     */
+    */
     
     
 }

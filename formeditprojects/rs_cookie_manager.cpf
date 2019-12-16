@@ -314,10 +314,10 @@
                     "taborder": "1100"
                 },
                 "id": "element5df15c30ca809",
-                "left": "660",
+                "left": "690",
                 "top": "10",
                 "height": "110",
-                "width": "200",
+                "width": "170",
                 "zindex": "1",
                 "containerid": "tab5df159532995a"
             },
@@ -503,6 +503,68 @@
                 "top": "100",
                 "height": "20",
                 "width": "430",
+                "zindex": "1",
+                "containerid": "tab5df159532995a"
+            },
+            "element5df6bdf30eb31": {
+                "classname": "help",
+                "property": [],
+                "id": "element5df6bdf30eb31",
+                "left": "660",
+                "top": "70",
+                "height": "20",
+                "width": "20",
+                "zindex": "1",
+                "containerid": "tab5df159532995a"
+            },
+            "element5df6be09164d5": {
+                "classname": "help",
+                "property": [],
+                "id": "element5df6be09164d5",
+                "left": "660",
+                "top": "100",
+                "height": "20",
+                "width": "20",
+                "zindex": "1",
+                "containerid": "tab5df159532995a"
+            },
+            "element5df6be210de4b": {
+                "classname": "help",
+                "property": {
+                    "helptext": "",
+                    "maxwidth": "300",
+                    "picture": "1",
+                    "hasparentcontrol": "tab5df159532995a_element5df2a6b3c9760_0",
+                    "customerid": "",
+                    "languageid": "",
+                    "invisible": "0",
+                    "style": ""
+                },
+                "id": "element5df6be210de4b",
+                "left": "650",
+                "top": "170",
+                "height": "20",
+                "width": "20",
+                "zindex": "1",
+                "containerid": "tab5df159532995a"
+            },
+            "element5df6be3c5ad91": {
+                "classname": "help",
+                "property": {
+                    "helptext": "Description what this cookie does.",
+                    "maxwidth": "300",
+                    "picture": "1",
+                    "hasparentcontrol": "tab5df159532995a_element5df2a6b3c9760_0",
+                    "customerid": "",
+                    "languageid": "",
+                    "invisible": "0",
+                    "style": ""
+                },
+                "id": "element5df6be3c5ad91",
+                "left": "650",
+                "top": "200",
+                "height": "20",
+                "width": "20",
                 "zindex": "1",
                 "containerid": "tab5df159532995a"
             }

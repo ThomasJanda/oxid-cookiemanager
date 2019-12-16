@@ -14,17 +14,30 @@ class rs_cookie_manager_widget extends \OxidEsales\EshopCommunity\Application\Co
     {
         //set cookie
         $sName = $this->_rs_cookiemanager_cookieName;
-        $sValue = uniqid();
+        $sCookieValue = uniqid();
         $iTime = time() + 365*24*60*60;
-        \OxidEsales\Eshop\Core\Registry::getUtilsServer()->setOxCookie($sName, $sValue, $iTime);
+        \OxidEsales\Eshop\Core\Registry::getUtilsServer()->setOxCookie($sName, $sCookieValue, $iTime);
 
         //save to the database
         $request = oxNew(Request::class);
         $aGroups=$request->getRequestParameter("rs_cookie_groups");
         $aGroupKeys = [];
         if(is_array($aGroups))
+        {
             $aGroupKeys = array_keys($aGroups);
-        
+            
+            //fix because jquery
+            $aGroupNew = [];
+            foreach($aGroups as $sKey => $sValue)
+            {
+                if(is_array($sValue))
+                    $sValue = end($sValue);
+                    
+                $aGroupNew[$sKey] = $sValue;
+            }
+            $aGroup = $aGroupNew;
+        }
+
         $iLang = \OxidEsales\Eshop\Core\Registry::getLang()->getBaseLanguage();
         $iShop = $this->getConfig()->getShopId();
         
@@ -43,7 +56,7 @@ class rs_cookie_manager_widget extends \OxidEsales\EshopCommunity\Application\Co
 
                 $aData = [];
                 $aData['rs_cookie_manager_track__oxid']=null;
-                $aData['rs_cookie_manager_track__rscookie_id']=$sValue;
+                $aData['rs_cookie_manager_track__rscookie_id']=$sCookieValue;
                 $aData['rs_cookie_manager_track__rsshopid']=$iShop;
                 $aData['rs_cookie_manager_track__rslanguageid']=$iLang;
                 $aData['rs_cookie_manager_track__f_rs_cookie_manager']=$o->getId();

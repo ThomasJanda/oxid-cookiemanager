@@ -119,7 +119,7 @@ class ViewConfig extends ViewConfig_parent
 
                     if(count($aViewClasses)==0 || in_array($sActCl,$aViewClasses))
                     {
-                        $this->_rs_cookiemanager_getActiveCookies[]=$aCookie;
+                        $this->_rs_cookiemanager_getActiveCookies[]=$oCookie;
                     }
                 }
             }
@@ -180,47 +180,43 @@ class ViewConfig extends ViewConfig_parent
         
         $aCookiesTracked = $this->_rs_cookiemanager_trackedCookies();
         $sRet="";
-        
+
         if (\OxidEsales\Eshop\Core\Registry::getUtils()->isSearchEngine()) {
             return $sRet;
         }
         
-        if($oList = $this->_rs_cookiemanager_getActiveCookiesOfThisView())
+        if($aCookie = $this->_rs_cookiemanager_getActiveCookiesOfThisView())
         {
-            foreach($aList as $o)
+            foreach($aCookie as $oCookie)
             {
-                $aCookie = $o->getItems();
-                foreach($aCookie as $oCookie)
+                //only add the cookie if allowed
+                $bAdd = false;
+                foreach($aCookiesTracked as $oCookieTracked)
                 {
-                    //only add the cookie if allowed
-                    $bAdd = false;
-                    foreach($aCookiesTracked as $oCookieTracked)
+                    if($oCookieTracked->rs_cookie_manager_track__f_rs_cookie_manager->value==$oCookie->rs_cookie_manager_item__f_rs_cookie_manager->value)
                     {
-                        if($oCookieTracked->rs_cookie_manager_track__f_rs_cookie_manager->value==$o->getId())
+                        if((bool) $oCookieTracked->rs_cookie_manager_track__rsallow->value)
                         {
-                            if((bool) $oCookieTracked->rs_cookie_manager_track__rsallow->value)
-                            {
-                                $bAdd = true;
-                                break;
-                            }
+                            $bAdd = true;
+                            break;
                         }
                     }
+                }
 
-                    if($bAdd)
-                    {
-                        $sCol = "rs_cookie_manager_item__rsplace".$iPlace;
+                if($bAdd)
+                {
+                    $sCol = "rs_cookie_manager_item__rsplace".$iPlace;
 
-                        //parse code with smarty
-                        $cid = md5(__CLASS__."|".$oCookie->getId()."|".$iPlace."|".$iLang."|".$iShop);
-                        $oSmarty = \OxidEsales\Eshop\Core\Registry::getUtilsView()->getSmarty();
-                        $oSmarty->oxidcache = clone $oCookie->{$sCol};
-                        $oSmarty->compile_check  = true;
-                        $sCacheId = $cid;
-                        $sCode = $oSmarty->fetch( "ox:".$sCacheId);
-                        $oSmarty->compile_check  = $this->getConfig()->getConfigParam( 'blCheckTemplates' );
+                    //parse code with smarty
+                    $cid = md5(__CLASS__."|".$oCookie->getId()."|".$iPlace."|".$iLang."|".$iShop);
+                    $oSmarty = \OxidEsales\Eshop\Core\Registry::getUtilsView()->getSmarty();
+                    $oSmarty->oxidcache = clone $oCookie->{$sCol};
+                    $oSmarty->compile_check  = true;
+                    $sCacheId = $cid;
+                    $sCode = $oSmarty->fetch( "ox:".$sCacheId);
+                    $oSmarty->compile_check  = $this->getConfig()->getConfigParam( 'blCheckTemplates' );
 
-                        $sRet.=$sCode;                        
-                    }
+                    $sRet.=$sCode;                        
                 }
             }
         }
