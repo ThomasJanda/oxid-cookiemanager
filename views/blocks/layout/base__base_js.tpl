@@ -1,0 +1,5 @@
+[{$smarty.block.parent}]
+[{oxscript include=$oViewConf->getModuleUrl("rs-cookiemanager", "out/src/js/js.js")}]
+[{if $oViewConf->rs_cookiemanager_showPopup()}]
+    [{oxscript add="$( document ).ready(function() { rs_cookie_manager_popup_open(); }); "}]
+[{/if}]

@@ -38,6 +38,11 @@ $aModule = array(
         ),
         array(
             'template' => 'layout/base.tpl',
+            'block'    => 'base_js',
+            'file'     => '/views/blocks/layout/base__base_js.tpl',
+        ),
+        array(
+            'template' => 'layout/base.tpl',
             'block'    => 'rscookiemanager1',
             'file'     => '/views/blocks/layout/base__rscookiemanager1.tpl',
         ),

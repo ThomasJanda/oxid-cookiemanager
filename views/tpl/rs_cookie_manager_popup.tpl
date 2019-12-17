@@ -1,4 +1,4 @@
-[{assign var=display value=$display|default:true}]
+[{strip}]
 <div class="modal fade" id="rs_cookie_manager_popup" data-keyboard="false" data-backdrop="static">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -10,7 +10,7 @@
                     [{oxmultilang ident="rs_cookie_manager_popup_description"}]
                 </p>
                 <div class="text-left">
-                    <form id="rs_cookie_manager_popup_form" action="" method="post">
+                    <form id="rs_cookie_manager_popup_form" action="" method="post" data-url="[{$oViewConf->getSslSelfLink()}]">
                         [{$oViewConf->getHiddenSid()}]
                         [{$oViewConf->getNavFormParams()}]
                         <input type="hidden" name="fnc" value="accept">
@@ -66,68 +66,4 @@
         </div>
     </div>
 </div>
-[{capture}]<script>[{/capture}]
-[{capture name="rsscript"}]
-    
-    
-    [{if $display}]
-        rs_cookie_manager_popup_open();
-    [{/if}]
-    
-    function rs_cookie_manager_popup_open()
-    {
-        $('#rs_cookie_manager_popup').modal('show');
-        return false;
-    }
-    
-    function rs_cookie_manager_popup_close()
-    {
-        setTimeout("$('#rs_cookie_manager_popup').modal('hide')", 500);
-    }
-    
-    $('#rs_cookie_manager_accept_all').click(function() {
-        
-        /* check all */
-        $('#rs_cookie_manager_popup input[type="checkbox"]').each(function(index) {
-            $(this)[0].checked = true;
-        });
-        
-        return rs_cookie_manager_accept();
-    });
-    $('#rs_cookie_manager_accept').click(function() {
-        return rs_cookie_manager_accept();
-    });
-    function rs_cookie_manager_accept()
-    {
-        /* sync ajax request */
-        var data = $('#rs_cookie_manager_popup_form').serialize();
-        $.ajax({
-            async:false,
-            method: "POST",
-            url: "[{$oViewConf->getSslSelfLink()}]",
-            data: data
-        }).done(function( msg ) {
-            /* nothing */
-        }).always(function() {
-            /* nothing */
-        });
-        
-        rs_cookie_manager_popup_close();
-        return true;
-    }
-    
-
-$('.rs_cookie_manager_group_more').click(function() {
-    let id = $(this).attr('data-group-id');
-    $(this).next().toggleClass('show');
-            if($(this).next().hasClass('show')){
-                 $(this).find('i').attr('style','transform: rotate(180deg)');
-            }else{
-                $(this).find('i').removeAttr('style');
-            }
-});
-
-
-[{/capture}]
-[{capture}]<script>[{/capture}]
-[{oxscript add=$smarty.capture.rsscript}]
+[{/strip}]
