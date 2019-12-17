@@ -1,0 +1,2 @@
+Implement in oxid standard checkbox if popup should display
+blShowCookiesNotification

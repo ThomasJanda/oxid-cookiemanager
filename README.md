@@ -3,9 +3,14 @@
 ## Description
 
 Implement the cookie manager solution with popup.
-Manage all cookies you need in the oxid admin. Add code snippets simply without template changes.
-Enable/Disable cookies based on the language the user select in the shop frontend.
-Goup cookies, define required cookies. The system create a popup automaticly.
+Manage all cookies you need in the oxid admin. Add code snippets simply without 
+template changes. Enable/Disable cookies based on the language the user select 
+in the shop frontend. Goup cookies, define required cookies. The system create 
+a popup automaticly. 
+
+There are two predefinied cookies and groups which repesent the standard google 
+implementation and the shop cookies. The system use the oxid implementation of 
+google analytics shipped with the oxid shop.
 
 For the legal security we do not take over guarantee!
 
@@ -20,6 +25,8 @@ agree the cookie settings, the page will reload and display only the cookies the
 will save on the computer the user use to identify in the future if the user agreed or not. In the database, 
 the modul save the settings the user make, so in the future it will only add the cookies to the page which 
 agreed by the user.
+
+The module, if enabled, deactivate the standard oxid cookie popup.
 
 This extension was created for Oxid 6.x. (Wave theme)
 
@@ -109,8 +116,8 @@ This extension was created for Oxid 6.x. (Wave theme)
 
         INSERT INTO `rs_cookie_manager` (`oxid`, `f_rs_cookie_manager_group`, `rsactive`, `rsident`, `rstitle`, `rstitle_1`, `rstitle_2`, `rsdescription`, `rsdescription_1`, `rsdescription_2`) 
         VALUES
-        ('rs_google_analytics', 'rs_nessesary', 1, 'Google analytics', 'Google analytics', NULL, NULL, 'Wir können Ihnen personalisierte Inhalte, passend zu Ihren Interessen anzuzeigen.\r\n\r\nSomit können wir Ihnen Angebote präsentieren, die für Sie besonders relevant sind.', NULL, NULL),
-        ('rs_shop', 'rs_statistic', 1, 'Shop', 'Shop system', NULL, NULL, 'Das Shop system speichert in diesen Cookies z.B. den Inhalt Ihres Warenkorbs oder Ihre Spracheinstellung.\r\n\r\nNotwendige Cookies können nicht deaktiviert werden, da unser Shop ansonsten nicht funktionieren würde.', NULL, NULL);
+        ('rs_google_analytics', 'rs_statistic', 1, 'Google analytics', 'Google analytics', NULL, NULL, 'Wir können Ihnen personalisierte Inhalte, passend zu Ihren Interessen anzuzeigen.\r\n\r\nSomit können wir Ihnen Angebote präsentieren, die für Sie besonders relevant sind.', NULL, NULL),
+        ('rs_shop', 'rs_nessesary', 1, 'Shop', 'Shop system', NULL, NULL, 'Das Shop system speichert in diesen Cookies z.B. den Inhalt Ihres Warenkorbs oder Ihre Spracheinstellung.\r\n\r\nNotwendige Cookies können nicht deaktiviert werden, da unser Shop ansonsten nicht funktionieren würde.', NULL, NULL);
         
 5. Make following changes template changes:
 

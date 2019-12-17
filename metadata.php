@@ -15,6 +15,7 @@ $aModule = array(
     'extend'      => array(
         \OxidEsales\Eshop\Core\ViewConfig::class => rs\cookiemanager\Core\ViewConfig::class,
         \OxidEsales\Eshop\Core\Language::class => rs\cookiemanager\Core\Language::class,
+        \OxidEsales\Eshop\Core\Config::class => rs\cookiemanager\Core\Config::class,
     ),
     'templates' => array(
         'rs/cookiemanager/views/tpl/rs_cookie_manager_popup'     => 'rs/cookiemanager/views/tpl/rs_cookie_manager_popup.tpl',
