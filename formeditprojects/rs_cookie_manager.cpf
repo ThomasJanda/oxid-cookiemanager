@@ -264,31 +264,10 @@
                 "zindex": "1",
                 "containerid": "tab5df159532995a"
             },
-            "element5df15c0896eca": {
-                "classname": "button_save",
-                "property": {
-                    "bezeichnung": "Save",
-                    "loadformular": "#STARTFORM#",
-                    "disabled": "0",
-                    "hasparentcontrol": "",
-                    "customerid": "",
-                    "languageid": "",
-                    "invisible": "0",
-                    "style": "",
-                    "taborder": "2400"
-                },
-                "id": "element5df15c0896eca",
-                "left": "20",
-                "top": "730",
-                "height": "30",
-                "width": "200",
-                "zindex": "1",
-                "containerid": "tab5df159532995a"
-            },
             "element5df15c11a70c4": {
                 "classname": "button_cancel",
                 "property": {
-                    "bezeichnung": "Cancel",
+                    "bezeichnung": "Back",
                     "loadformular": "#STARTFORM#",
                     "displayconfirmpopup": "0",
                     "confirmpopuptext": "",
@@ -565,6 +544,27 @@
                 "top": "200",
                 "height": "20",
                 "width": "20",
+                "zindex": "1",
+                "containerid": "tab5df159532995a"
+            },
+            "element5df924187eabc": {
+                "classname": "button_save2",
+                "property": {
+                    "bezeichnung": "Save",
+                    "loadformular": "tab5df159532995a",
+                    "writeindex": "1",
+                    "disabled": "0",
+                    "hasparentcontrol": "",
+                    "customerid": "",
+                    "languageid": "",
+                    "invisible": "0",
+                    "style": ""
+                },
+                "id": "element5df924187eabc",
+                "left": "20",
+                "top": "730",
+                "height": "30",
+                "width": "200",
                 "zindex": "1",
                 "containerid": "tab5df159532995a"
             }

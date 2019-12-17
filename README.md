@@ -144,6 +144,10 @@ This extension was created for Oxid 6.x. (Wave theme)
             </body>
             </html>
 
+    4. Add to your CMS-Page where you describe the cookie police following link:
+
+            <a href="" onclick="return rs_cookie_manager_popup_open();">Cookie policy<a>
+
 6. Enable module in the oxid admin area, Extensions => Modules
 
 7. Rebuild views, clear complete cache.

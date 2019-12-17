@@ -1,3 +1,4 @@
+[{assign var=display value=$display|default:true}]
 <div class="modal fade" id="rs_cookie_manager_popup" data-keyboard="false" data-backdrop="static">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -23,7 +24,7 @@
                                 <div class="rs_cookie_manager_group" data-group-id="[{$oGroup->getId()}]">
                                     <div class="form-check form-check-inline checkbox-inline">
                                         <input type="hidden" name="rs_cookie_groups[[{$oGroup->getId()}]]" value="[{if $oGroup->rs_cookie_manager_group__rsrequired->value}]1[{else}]0[{/if}]">
-                                        <input class="form-check-input" name="rs_cookie_groups[[{$oGroup->getId()}]]" type="checkbox" id="group[{$oGroup->getId()}]" value="1" checked [{if $oGroup->rs_cookie_manager_group__rsrequired->value}] disabled [{/if}]>
+                                        <input class="form-check-input" name="rs_cookie_groups[[{$oGroup->getId()}]]" type="checkbox" id="group[{$oGroup->getId()}]" value="1" [{if $oGroup->rs_cookie_manager_group__rsrequired->value}] checked disabled [{/if}]>
                                         <label class="form-check-label" for="group[{$oGroup->getId()}]">
                                             [{$oGroup->rs_cookie_manager_group__rstitle->value}]
                                         </label>
@@ -68,7 +69,16 @@
 [{capture}]<script>[{/capture}]
 [{capture name="rsscript"}]
     
-    $('#rs_cookie_manager_popup').modal('show');
+    
+    [{if $display}]
+        rs_cookie_manager_popup_open();
+    [{/if}]
+    
+    function rs_cookie_manager_popup_open()
+    {
+        $('#rs_cookie_manager_popup').modal('show');
+        return false;
+    }
     
     function rs_cookie_manager_popup_close()
     {
