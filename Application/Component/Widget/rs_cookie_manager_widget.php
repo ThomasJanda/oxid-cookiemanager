@@ -15,7 +15,12 @@ class rs_cookie_manager_widget extends \OxidEsales\EshopCommunity\Application\Co
         //set cookie
         $sName = $this->_rs_cookiemanager_cookieName;
         $sCookieValue = uniqid();
-        $iTime = time() + 365*24*60*60;
+        
+        $iDays = (int) $this->getConfig()->getConfigParam('rs-cookiemanager_days_till_expire');
+        if($iDays==0)
+            $iDays=365;
+        
+        $iTime = time() + $iDays*24*60*60;
         \OxidEsales\Eshop\Core\Registry::getUtilsServer()->setOxCookie($sName, $sCookieValue, $iTime);
 
         //save to the database

@@ -1,3 +1,7 @@
+#rs_cookie_manager_popup
+{
+    z-index:99999;
+}
 .rs_cookie_manager_item
 {
     padding: 10px;

@@ -57,4 +57,12 @@ $aModule = array(
             'file'     => '/views/blocks/layout/base__rscookiemanager3.tpl',
         ),
     ),
+    'settings'    => array(
+        array(
+            'group' => 'rs-cookiemanager_main',
+            'name'  => 'rs-cookiemanager_days_till_expire',
+            'type'  => 'str',
+            'value' => 365,
+        ),
+    ),
 );
