@@ -148,6 +148,12 @@ This extension was created for Oxid 6.x. (Wave theme)
 
             <a href="" onclick="return rs_cookie_manager_popup_open();">Cookie policy<a>
 
+    5. Create a new CMS-Page where you can add a text above the cookie selection. The CMS-Ident is "rs_cookiemanager_popup_desc". An example is:
+
+            Wir verwenden Cookies, um Ihnen ein optimales Einkaufserlebnis zu bieten.
+            Einige Cookies sind technisch notwendig, andere dienen zu anonymen Statistikzwecken.
+            Entscheiden Sie bitte selbst, welche Cookies Sie akzeptieren.
+
 6. Enable module in the oxid admin area, Extensions => Modules
 
 7. Rebuild views, clear complete cache.

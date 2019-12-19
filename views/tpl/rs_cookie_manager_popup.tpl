@@ -3,11 +3,13 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header text-left">
-                <h2 class="modal-title">[{oxmultilang ident="rs_cookie_manager_popup_title"}]</h2>
+                <h2 class="modal-title rs_cookie_manager_popup_title">[{oxmultilang ident="rs_cookie_manager_popup_title"}]</h2>
             </div>
             <div class="modal-body">
-                <p class="text-left">
-                    [{oxmultilang ident="rs_cookie_manager_popup_description"}]
+                <p class="text-left rs_cookie_manager_popup_desc">
+                    [{oxifcontent ident="rs_cookiemanager_popup_desc" object="oContent"}]
+                    [{$oContent->oxcontents__oxcontent->value}]
+                    [{/oxifcontent}]
                 </p>
                 <div class="text-left">
                     <form id="rs_cookie_manager_popup_form" action="" method="post" data-url="[{$oViewConf->getSslSelfLink()}]">
