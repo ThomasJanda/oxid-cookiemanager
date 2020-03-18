@@ -9,11 +9,6 @@ class ViewConfig extends ViewConfig_parent
     protected function _rs_cookiemanager_getCookieId()
     {
         $sId = \OxidEsales\Eshop\Core\Registry::getUtilsServer()->getOxCookie($this->_rs_cookiemanager_cookieName);
-        /*
-        echo '<pre>';
-        print_r($_COOKIE);
-        die("");
-         */
         return $sId;
     }
     protected function _rs_cookiemanager_trackedCookies()
@@ -42,53 +37,74 @@ class ViewConfig extends ViewConfig_parent
             else
             {
                 $bShow=true;
-                if($this->_rs_cookiemanager_getCookieId()!==null)
+                
+                //test if on defined cms-page
+                $sActCl = $this->getTopActiveClassName();
+                if($sActCl==="content")
                 {
-                    //get all active cookies in this language
-                    $aCookiesActive = [];
-                    $oList = new \rs\cookiemanager\Model\rs_cookie_manager_list();      
-                    $aList = $oList->getList();
-                    foreach($aList as $o)
+                    $aIdents = explode("|",$this->getConfig()->getConfigParam('rs-cookiemanager_hide_cms_ident'));
+                    $oxcid = \OxidEsales\Eshop\Core\Registry::getConfig()->getRequestParameter('oxcid','');
+                    if($oxcid!=="")
                     {
-                        $aCookie = $o->getItems();
-                        if(count($aCookie) > 0)
+                        $oContent = oxNew(\OxidEsales\Eshop\Application\Model\Content::class);
+                        $oContent->load($oxcid);
+                        if(in_array($oContent->getLoadId(),$aIdents))
                         {
-                            $aCookiesActive[] = $o->getId();
+                            $bShow = false;
                         }
                     }
-
-                    if(count($aCookiesActive)==0)
+                }
+                
+                if($bShow)
+                {
+                    if($this->_rs_cookiemanager_getCookieId()!==null)
                     {
-                        //no active cookie present, no popup nesseary
-                        //the cookie id is present, means use agree with standard cookies
-                        $bShow=false;
-                    }
-                    else
-                    {
-                        //get all allowed cookies which the user agree
-                        $aCookiesTracked = [];
-                        if($aList = $this->_rs_cookiemanager_trackedCookies())
+                        //get all active cookies in this language
+                        $aCookiesActive = [];
+                        $oList = new \rs\cookiemanager\Model\rs_cookie_manager_list();      
+                        $aList = $oList->getList();
+                        foreach($aList as $o)
                         {
-                            foreach($aList as $o)
+                            $aCookie = $o->getItems();
+                            if(count($aCookie) > 0)
                             {
-                                $aCookiesTracked[]=$o->rs_cookie_manager_track__f_rs_cookie_manager->value;
+                                $aCookiesActive[] = $o->getId();
                             }
                         }
 
-                        //test the both list if all ok (all active cookies in the tracked list)
-                        $bFound = true;
-                        foreach($aCookiesActive as $id)
+                        if(count($aCookiesActive)==0)
                         {
-                            if(!in_array($id, $aCookiesTracked))
-                            {
-                                $bFound = false;
-                                break;
-                            }
+                            //no active cookie present, no popup nesseary
+                            //the cookie id is present, means use agree with standard cookies
+                            $bShow=false;
                         }
+                        else
+                        {
+                            //get all allowed cookies which the user agree
+                            $aCookiesTracked = [];
+                            if($aList = $this->_rs_cookiemanager_trackedCookies())
+                            {
+                                foreach($aList as $o)
+                                {
+                                    $aCookiesTracked[]=$o->rs_cookie_manager_track__f_rs_cookie_manager->value;
+                                }
+                            }
 
-                        //test fail if one cookie of the active not int the tracked list
-                        //but it is ok if the user has more tracked cookies as we really use
-                        $bShow = !$bFound;
+                            //test the both list if all ok (all active cookies in the tracked list)
+                            $bFound = true;
+                            foreach($aCookiesActive as $id)
+                            {
+                                if(!in_array($id, $aCookiesTracked))
+                                {
+                                    $bFound = false;
+                                    break;
+                                }
+                            }
+
+                            //test fail if one cookie of the active not int the tracked list
+                            //but it is ok if the user has more tracked cookies as we really use
+                            $bShow = !$bFound;
+                        }
                     }
                 }
             }

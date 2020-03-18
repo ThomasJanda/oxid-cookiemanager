@@ -31,7 +31,7 @@
                                             [{$oGroup->rs_cookie_manager_group__rstitle->value}]
                                         </label>
                                     </div>
-                                    <div>[{$oGroup->rs_cookie_manager_group__rsdescription->value|nl2br}]</div>
+                                    <div>[{$oGroup->rs_cookie_manager_group__rsdescription->getRawValue()|nl2br}]</div>
                                 </div>
                                 <div class="text-left">
                                     <a href="#" class="rs_cookie_manager_group_more" data-group-id="[{$oGroup->getId()}]" class="text-link">
@@ -41,7 +41,7 @@
                             [{/if}]
                                         <div class="rs_cookie_manager_item" data-item-group-id="[{$oGroup->getId()}]" data-item-id="[{$oItem->getId()}]">
                                             <b>[{$oItem->rs_cookie_manager__rstitle->value}]</b>
-                                            <div>[{$oItem->rs_cookie_manager__rsdescription->value|nl2br}]</div>
+                                            <div>[{$oItem->rs_cookie_manager__rsdescription->getRawValue()|nl2br}]</div>
                                         </div>
                             [{if $smarty.foreach.listitems.last}]
                                     </div>

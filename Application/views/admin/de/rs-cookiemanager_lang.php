@@ -12,4 +12,5 @@ $aLang = array(
     
     'SHOP_MODULE_GROUP_rs-cookiemanager_main' => 'Grundeinstellungen',
     'SHOP_MODULE_rs-cookiemanager_days_till_expire' => 'Tage nach denen das Popup wieder angezeigt wird (Standard: 365 Tage)',
+    'SHOP_MODULE_rs-cookiemanager_hide_cms_ident' => 'CMS-Idents auf denen das Popup nicht angezeigt wird (CMS-Ident getrennt mit |)',
 );

@@ -243,8 +243,9 @@
                     "customerid": "",
                     "languageid": "",
                     "invisible": "0",
-                    "style": "",
-                    "taborder": "1500"
+                    "style": "line-height:15px;",
+                    "taborder": "1500",
+                    "fixwidth": "0"
                 },
                 "id": "element5df2a3a36d276",
                 "left": "20",
@@ -325,8 +326,9 @@
                     "customerid": "",
                     "languageid": "",
                     "invisible": "0",
-                    "style": "",
-                    "taborder": "1600"
+                    "style": "line-height:15px;",
+                    "taborder": "1600",
+                    "fixwidth": "0"
                 },
                 "id": "element5df2a48a2f64f",
                 "left": "20",
@@ -423,8 +425,9 @@
                     "customerid": "",
                     "languageid": "",
                     "invisible": "0",
-                    "style": "",
-                    "taborder": "1700"
+                    "style": "line-height:15px;",
+                    "taborder": "1700",
+                    "fixwidth": "0"
                 },
                 "id": "element5df2a524a795c",
                 "left": "20",
@@ -443,8 +446,9 @@
                     "customerid": "",
                     "languageid": "",
                     "invisible": "0",
-                    "style": "",
-                    "taborder": "1800"
+                    "style": "line-height:15px;",
+                    "taborder": "1800",
+                    "fixwidth": "0"
                 },
                 "id": "element5df2a52d458e3",
                 "left": "20",

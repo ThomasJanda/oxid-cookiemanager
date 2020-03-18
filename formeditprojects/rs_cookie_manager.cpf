@@ -487,7 +487,16 @@
             },
             "element5df6bdf30eb31": {
                 "classname": "help",
-                "property": [],
+                "property": {
+                    "helptext": "Unique identifier",
+                    "maxwidth": "300",
+                    "picture": "1",
+                    "hasparentcontrol": "",
+                    "customerid": "",
+                    "languageid": "",
+                    "invisible": "0",
+                    "style": ""
+                },
                 "id": "element5df6bdf30eb31",
                 "left": "660",
                 "top": "70",

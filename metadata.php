@@ -64,5 +64,11 @@ $aModule = array(
             'type'  => 'str',
             'value' => 365,
         ),
+        array(
+            'group' => 'rs-cookiemanager_main',
+            'name'  => 'rs-cookiemanager_hide_cms_ident',
+            'type'  => 'str',
+            'value' => "oximpressum|oxsecurityinfo"
+        ),
     ),
 );
