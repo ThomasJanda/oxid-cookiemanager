@@ -2,6 +2,7 @@
   "name": "rs/cookiemanager",
   "description": "cookiemanager",
   "type": "oxideshop-module",
+  "minimum-stability": "stable",
   "keywords": ["oxid", "modules", "eShop", "cookie", "popup"],
   "homepage": "https://www.reisacher-software.de",
   "license": [
