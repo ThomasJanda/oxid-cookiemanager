@@ -3,7 +3,6 @@
   "description": "cookiemanager",
   "type": "oxideshop-module",
   "minimum-stability": "stable",
-  "version" : "v1.0.0",
   "keywords": ["oxid", "modules", "eShop", "cookie", "popup"],
   "homepage": "https://www.reisacher-software.de",
   "license": [
