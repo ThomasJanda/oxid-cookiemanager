@@ -40,7 +40,7 @@ class rs_cookie_manager_widget extends \OxidEsales\EshopCommunity\Application\Co
                     
                 $aGroupNew[$sKey] = $sValue;
             }
-            $aGroup = $aGroupNew;
+            $aGroups = $aGroupNew;
         }
 
         $iLang = \OxidEsales\Eshop\Core\Registry::getLang()->getBaseLanguage();
