@@ -12,12 +12,14 @@
                     [{/oxifcontent}]
                 </p>
                 <div class="text-left">
-                    <form id="rs_cookie_manager_popup_form" action="" method="post" data-url="[{$oViewConf->getSslSelfLink()}]">
+                    <form id="rs_cookie_manager_popup_form" action="[{$oViewConf->getSslSelfLink()|replace:'?':''}]" method="post">
+
                         [{$oViewConf->getHiddenSid()}]
                         [{$oViewConf->getNavFormParams()}]
                         <input type="hidden" name="fnc" value="accept">
                         <input type="hidden" name="cl" value="rs_cookie_manager_widget">
-                  
+                        <input type="hidden" name="sourcecl" value="[{$oViewConf->getTopActiveClassName()}]">
+
                     [{assign var=aList value=$oViewConf->rs_cookiemanager_getPopupContent()}]
                     [{foreach from=$aList item=aItems}]
                         [{foreach from=$aItems item=oItem name=listitems}]
@@ -61,8 +63,8 @@
                     [{/oxifcontent}]
                 </div>
                 <div class="text-right text-lg-right">
-                    <a rel="nofollow" id="rs_cookie_manager_accept" href="" class="mt-2 btn btn-outline-success btn-default">[{oxmultilang ident="rs_cookie_manager_popup_button_accept"}]</a>
-                    <a rel="nofollow" id="rs_cookie_manager_accept_all" href="" class="mt-2 ml-2 btn btn-success">[{oxmultilang ident="rs_cookie_manager_popup_button_accept_all"}]</a>
+                    <a rel="nofollow" id="rs_cookie_manager_accept" href="#" class="mt-2 btn btn-outline-success btn-default">[{oxmultilang ident="rs_cookie_manager_popup_button_accept"}]</a>
+                    <a rel="nofollow" id="rs_cookie_manager_accept_all" href="#" class="mt-2 ml-2 btn btn-success">[{oxmultilang ident="rs_cookie_manager_popup_button_accept_all"}]</a>
                 </div>
             </div>
         </div>

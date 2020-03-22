@@ -9,17 +9,21 @@ class rs_cookie_manager_widget extends \OxidEsales\EshopCommunity\Application\Co
 {
 
     protected $_rs_cookiemanager_cookieName="rs_cookie_manager";
-    
+
     public function accept()
     {
         //set cookie
         $sName = $this->_rs_cookiemanager_cookieName;
         $sCookieValue = uniqid();
-        
+
         $iDays = (int) $this->getConfig()->getConfigParam('rs-cookiemanager_days_till_expire');
+        $sSourceCl = $this->getConfig()->getConfigParam('sourcecl');
+        if(!$sSourceCl || $sSourceCl==="")
+            $sSourceCl = "start";
+
         if($iDays==0)
             $iDays=365;
-        
+
         $iTime = time() + $iDays*24*60*60;
         \OxidEsales\Eshop\Core\Registry::getUtilsServer()->setOxCookie($sName, $sCookieValue, $iTime);
 
@@ -30,14 +34,14 @@ class rs_cookie_manager_widget extends \OxidEsales\EshopCommunity\Application\Co
         if(is_array($aGroups))
         {
             $aGroupKeys = array_keys($aGroups);
-            
+
             //fix because jquery
             $aGroupNew = [];
             foreach($aGroups as $sKey => $sValue)
             {
                 if(is_array($sValue))
                     $sValue = end($sValue);
-                    
+
                 $aGroupNew[$sKey] = $sValue;
             }
             $aGroups = $aGroupNew;
@@ -45,8 +49,8 @@ class rs_cookie_manager_widget extends \OxidEsales\EshopCommunity\Application\Co
 
         $iLang = \OxidEsales\Eshop\Core\Registry::getLang()->getBaseLanguage();
         $iShop = $this->getConfig()->getShopId();
-        
-        $oList = new \rs\cookiemanager\Model\rs_cookie_manager_list();      
+
+        $oList = new \rs\cookiemanager\Model\rs_cookie_manager_list();
         $aList = $oList->getList();
         foreach($aList as $o)
         {
@@ -72,8 +76,11 @@ class rs_cookie_manager_widget extends \OxidEsales\EshopCommunity\Application\Co
                 $oTrack->save();
             }
         }
-        
-        header("HTTP/1.0 200 Ok", true, 200);
+
+        $sUrl = $this->getConfig()->getShopCurrentUrl() . "cl=" . $sSourceCl;
+        $sUrl = \OxidEsales\Eshop\Core\Registry::get( "oxUtilsUrl" )->processUrl( $sUrl );
+        \OxidEsales\Eshop\Core\Registry::getUtils()->redirect( $sUrl );
+
         die("");
     }
 }
