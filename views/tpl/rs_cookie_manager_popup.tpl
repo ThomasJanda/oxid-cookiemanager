@@ -12,7 +12,7 @@
                     [{/oxifcontent}]
                 </p>
                 <div class="text-left">
-                    <form id="rs_cookie_manager_popup_form" action="[{$oViewConf->getSslSelfLink()|replace:'?':''}]" method="post">
+                    <form id="rs_cookie_manager_popup_form" action="[{$oViewConf->getSslSelfLink()}]" method="post">
 
                         [{$oViewConf->getHiddenSid()}]
                         [{$oViewConf->getNavFormParams()}]
