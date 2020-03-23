@@ -58,7 +58,7 @@
                     "showbuttonedit_blank": "0",
                     "showbuttondelete": "1",
                     "deletetable": "rs_cookie_manager_item",
-                    "deletecolindex": "",
+                    "deletecolindex": "oxid",
                     "deletesubrowssqlstring": "",
                     "showbuttondelete_condition": "0",
                     "showbuttondelete_condition_sql": "",
