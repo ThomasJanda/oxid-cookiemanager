@@ -156,8 +156,8 @@ This extension was created for Oxid 6.x. (Wave theme)
 
 6. Add following code into "modules/functions.php" at the end of the file
 
-    /* rs cookiemanager */
-    include __DIR__."/rs/cookiemanager/oxfunction.php";
+        /* rs cookiemanager */
+        include __DIR__."/rs/cookiemanager/oxfunction.php";
 
 7. Enable module in the oxid admin area, Extensions => Modules
 
