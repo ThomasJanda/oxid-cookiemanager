@@ -226,6 +226,14 @@ class ViewConfig extends ViewConfig_parent
                     //parse code with smarty
                     $cid = md5(__CLASS__."|".$oCookie->getId()."|".$iPlace."|".$iLang."|".$iShop);
                     $oSmarty = \OxidEsales\Eshop\Core\Registry::getUtilsView()->getSmarty();
+
+                    $oSmarty->register_resource(
+                        'rscookie', array('rscookie_get_template',
+                                    'rscookie_get_timestamp',
+                                    'rscookie_get_secure',
+                                    'rscookie_get_trusted')
+                    );
+
                     $oSmarty->oxidcache = clone $oCookie->{$sCol};
                     $oSmarty->compile_check  = true;
                     $sCacheId = $cid;

@@ -154,6 +154,11 @@ This extension was created for Oxid 6.x. (Wave theme)
             Einige Cookies sind technisch notwendig, andere dienen zu anonymen Statistikzwecken.
             Entscheiden Sie bitte selbst, welche Cookies Sie akzeptieren.
 
-6. Enable module in the oxid admin area, Extensions => Modules
+6. Add following code into "modules/functions.php" at the end of the file
 
-7. Rebuild views, clear complete cache.
+    /* rs cookiemanager */
+    include __DIR__."/rs/cookiemanager/oxfunction.php";
+
+7. Enable module in the oxid admin area, Extensions => Modules
+
+8. Rebuild views, clear complete cache.
