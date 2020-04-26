@@ -1,3 +1,5 @@
+"use strict";
+
 $( document ).ready(function() {
     $('#rs_cookie_manager_accept_all').click(function() {
         $('#rs_cookie_manager_popup input[type="checkbox"]').each(function() {
@@ -20,20 +22,17 @@ $( document ).ready(function() {
 });
 function rs_cookie_manager_popup_open()
 {
-    "use strict";
     $('#rs_cookie_manager_popup').modal('show');
     return false;
 }
 function rs_cookie_manager_popup_close()
 {
-    "use strict";
     window.setTimeout(function() {
         $('#rs_cookie_manager_popup').modal('hide');
     }, 500);
 }
 function rs_cookie_manager_accept()
 {
-    "use strict";
     $('#rs_cookie_manager_popup_form').trigger('submit');
     /* sync ajax request */
     /*
