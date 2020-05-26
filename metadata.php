@@ -16,6 +16,7 @@ $aModule = array(
         \OxidEsales\Eshop\Core\ViewConfig::class => rs\cookiemanager\Core\ViewConfig::class,
         \OxidEsales\Eshop\Core\Language::class => rs\cookiemanager\Core\Language::class,
         \OxidEsales\Eshop\Core\Config::class => rs\cookiemanager\Core\Config::class,
+        \OxidEsales\Eshop\Application\Component\UserComponent::class => rs\cookiemanager\Application\Component\UserComponent::class,
     ),
     'templates' => array(
         'rs/cookiemanager/views/tpl/rs_cookie_manager_popup'     => 'rs/cookiemanager/views/tpl/rs_cookie_manager_popup.tpl',
@@ -28,7 +29,7 @@ $aModule = array(
        'rs_cookie_manager_list' => rs\cookiemanager\Model\rs_cookie_manager_list::class,
        'rs_cookie_manager_item' => rs\cookiemanager\Model\rs_cookie_manager_item::class,
        'rs_cookie_manager_item_list' => rs\cookiemanager\Model\rs_cookie_manager_item_list::class,
-       'rs_cookie_manager_widget' => rs\cookiemanager\Application\Component\Widget\rs_cookie_manager_widget::class,
+
     ),
     'blocks'      => array(
         array(

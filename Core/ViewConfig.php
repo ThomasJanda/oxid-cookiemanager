@@ -10,7 +10,10 @@ class ViewConfig extends ViewConfig_parent
     protected function _rs_cookiemanager_getCookieId()
     {
         if ($this->_rs_cookiemanager_cookieId === null) {
-            $sId = \OxidEsales\Eshop\Core\Registry::getUtilsServer()->getOxCookie($this->_rs_cookiemanager_cookieName);
+            
+            $sId = \OxidEsales\Eshop\Core\Registry::getSession()->getVariable($this->_rs_cookiemanager_cookieName);
+            if(!$sId)
+                $sId = \OxidEsales\Eshop\Core\Registry::getUtilsServer()->getOxCookie($this->_rs_cookiemanager_cookieName);
 
             if ($sId !== null) {
                 //refresh

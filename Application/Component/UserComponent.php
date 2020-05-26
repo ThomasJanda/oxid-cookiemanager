@@ -1,34 +1,33 @@
 <?php
 
-namespace rs\cookiemanager\Application\Component\Widget;
+namespace rs\cookiemanager\Application\Component;
 
 use oxdb;
 use OxidEsales\Eshop\Core\Request;
 
-class rs_cookie_manager_widget extends \OxidEsales\EshopCommunity\Application\Component\Widget\WidgetController
+//class rs_cookie_manager_widget extends \OxidEsales\EshopCommunity\Application\Controller\FrontendController
+class UserComponent extends UserComponent_parent
 {
 
     protected $_rs_cookiemanager_cookieName="rs_cookie_manager";
 
-    public function accept()
+    public function rs_cookie_manager__accept()
     {
         //set cookie
         $sName = $this->_rs_cookiemanager_cookieName;
         $sCookieValue = uniqid();
 
-        $iDays = (int) $this->getConfig()->getConfigParam('rs-cookiemanager_days_till_expire');
-        $sSourceCl = $this->getConfig()->getConfigParam('sourcecl');
-        if(!$sSourceCl || $sSourceCl==="")
-            $sSourceCl = "start";
+        $request = oxNew(Request::class);
 
+        $iDays = (int) $this->getConfig()->getConfigParam('rs-cookiemanager_days_till_expire');
         if($iDays==0)
             $iDays=365;
 
         $iTime = time() + $iDays*24*60*60;
         \OxidEsales\Eshop\Core\Registry::getUtilsServer()->setOxCookie($sName, $sCookieValue, $iTime);
+        \OxidEsales\Eshop\Core\Registry::getSession()->setVariable($sName, $sCookieValue);
 
         //save to the database
-        $request = oxNew(Request::class);
         $aGroups=$request->getRequestParameter("rs_cookie_groups");
         $aGroupKeys = [];
         if(is_array($aGroups))
@@ -76,11 +75,5 @@ class rs_cookie_manager_widget extends \OxidEsales\EshopCommunity\Application\Co
                 $oTrack->save();
             }
         }
-
-        $sUrl = $this->getConfig()->getShopCurrentUrl() . "cl=" . $sSourceCl;
-        $sUrl = \OxidEsales\Eshop\Core\Registry::get( "oxUtilsUrl" )->processUrl( $sUrl );
-        \OxidEsales\Eshop\Core\Registry::getUtils()->redirect( $sUrl );
-
-        die("");
     }
 }

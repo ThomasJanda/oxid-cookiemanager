@@ -16,9 +16,18 @@
 
                         [{$oViewConf->getHiddenSid()}]
                         [{$oViewConf->getNavFormParams()}]
-                        <input type="hidden" name="fnc" value="accept">
-                        <input type="hidden" name="cl" value="rs_cookie_manager_widget">
-                        <input type="hidden" name="sourcecl" value="[{$oViewConf->getTopActiveClassName()}]">
+                        <input type="hidden" name="fnc" value="rs_cookie_manager__accept">
+                        <input type="hidden" name="cl" value="[{$oViewConf->getTopActiveClassName()}]">
+                        
+                        [{if $oViewConf->getTopActiveClassName() eq "content"}]
+                            <input type="hidden" name="oxcid" value="[{$oViewConf->getContentId()}]">
+                        [{/if}]
+                        <input type="hidden" name="pgNr" value="[{$oView->getActPage()}]">
+                        <input type="hidden" name="CustomError" value="loginBoxErrors">
+                        [{if $oViewConf->getActArticleId()}]
+                            <input type="hidden" name="anid" value="[{$oViewConf->getActArticleId()}]">
+                        [{/if}]
+                        
 
                     [{assign var=aList value=$oViewConf->rs_cookiemanager_getPopupContent()}]
                     [{foreach from=$aList item=aItems}]
