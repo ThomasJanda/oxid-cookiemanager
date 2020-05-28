@@ -244,4 +244,10 @@ class ViewConfig extends ViewConfig_parent
 
         return $sValue;
     }
+
+
+    public function rs_cookiemanager_getCurrentUrl()
+    {
+        return \OxidEsales\Eshop\Core\Registry::getUtilsUrl()->getCurrentUrl();
+    }
 }
