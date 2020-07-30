@@ -2,7 +2,7 @@
 
 namespace rs\cookiemanager\Model;
 
-class rs_cookie_manager_track extends \OxidEsales\EshopCommunity\Core\Model\BaseModel
+class rs_cookie_manager_track extends \OxidEsales\Eshop\Core\Model\BaseModel
 {
     protected $_sClassName = 'rs_cookie_manager_track';
     

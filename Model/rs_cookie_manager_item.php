@@ -2,7 +2,7 @@
 
 namespace rs\cookiemanager\Model;
 
-class rs_cookie_manager_item extends \OxidEsales\EshopCommunity\Core\Model\MultiLanguageModel
+class rs_cookie_manager_item extends \OxidEsales\Eshop\Core\Model\MultiLanguageModel
 {
     protected $_sClassName = 'rs_cookie_manager_item';
     

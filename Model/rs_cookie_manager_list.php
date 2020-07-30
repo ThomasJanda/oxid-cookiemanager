@@ -2,7 +2,7 @@
 
 namespace rs\cookiemanager\Model;
 
-class rs_cookie_manager_list extends \OxidEsales\EshopCommunity\Core\Model\ListModel
+class rs_cookie_manager_list extends \OxidEsales\Eshop\Core\Model\ListModel
 {
     public function __construct()
     {

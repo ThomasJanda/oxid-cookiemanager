@@ -2,7 +2,7 @@
 
 namespace rs\cookiemanager\Core;
 
-use OxidEsales\EshopCommunity\Core\Registry;
+use OxidEsales\Eshop\Core\Registry;
 
 class Config extends Config_parent
 {
