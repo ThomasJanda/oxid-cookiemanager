@@ -9,7 +9,6 @@ class rs_cookie_manager_track_list extends \OxidEsales\Eshop\Core\Model\ListMode
         parent::__construct(\rs\cookiemanager\Model\rs_cookie_manager_track::class);
     }
     
-    
     public function getListItems($sCookieId)
     {
         $iLang = \OxidEsales\Eshop\Core\Registry::getLang()->getBaseLanguage();
@@ -20,7 +19,8 @@ class rs_cookie_manager_track_list extends \OxidEsales\Eshop\Core\Model\ListMode
         $sQ = "select $sFieldList from " . $oListObject->getViewName();
         $sQ.= " where rscookie_id='$sCookieId'";
         $sQ.= " and rsshopid='$iShop'";
-        $sQ.= " and rslanguageid='$iLang'";
+        //make problem if the user switch the language
+        //$sQ.= " and rslanguageid='$iLang'";
         $this->selectString($sQ);
 
         return $this;

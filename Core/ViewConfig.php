@@ -83,6 +83,9 @@ class ViewConfig extends ViewConfig_parent
                             //no active cookie present, no popup nesseary
                             //the cookie id is present, means use agree with standard cookies
                             $bShow = false;
+                            
+                            //it is possible, that the user switch the language and the user has to agree there too
+                            
                         } else {
                             //get all allowed cookies which the user agree
                             $aCookiesTracked = [];

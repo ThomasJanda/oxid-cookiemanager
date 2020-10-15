@@ -34,6 +34,13 @@ This extension was created for Oxid 6.x. (Wave theme)
 
 "oxid-formedit" module required.
 
+## Good to know
+
+In the cookie manager group you can setup a customer id. This id you can ask in the code to know if a user accept that cookie or not. 
+This is usefull if you need to write a module where the user have to accept cookies first like embeded videos....
+
+        $accepted = \rs\cookiemanager\Core\rs_cookie_manager::userAcceptCookieGroup('#CUSTOMERID#');
+
 ## Install
 
 1. Copy module into following directory
@@ -119,6 +126,8 @@ This extension was created for Oxid 6.x. (Wave theme)
         ('rs_google_analytics', 'rs_statistic', 1, 'Google analytics', 'Google analytics', NULL, NULL, 'Wir können Ihnen personalisierte Inhalte, passend zu Ihren Interessen anzuzeigen.\r\n\r\nSomit können wir Ihnen Angebote präsentieren, die für Sie besonders relevant sind.', NULL, NULL),
         ('rs_shop', 'rs_nessesary', 1, 'Shop', 'Shop system', NULL, NULL, 'Das Shop system speichert in diesen Cookies z.B. den Inhalt Ihres Warenkorbs oder Ihre Spracheinstellung.\r\n\r\nNotwendige Cookies können nicht deaktiviert werden, da unser Shop ansonsten nicht funktionieren würde.', NULL, NULL);
         
+        ALTER TABLE `rs_cookie_manager_group` ADD `rscustomer_id` VARCHAR(250) NULL DEFAULT NULL; 
+
 5. Make following changes template changes:
 
     1. /source/Application/views/wave/tpl/layout/base.tpl right before &lt;/head&gt;
