@@ -5,7 +5,7 @@ namespace rs\cookiemanager\Application\Component;
 use oxdb;
 use OxidEsales\Eshop\Core\Request;
 
-//class rs_cookie_manager_widget extends \OxidEsales\Eshop\Application\Controller\FrontendController
+//class rs_cookie_manager_widget extends \OxidEsales\EshopCommunity\Application\Controller\FrontendController
 class UserComponent extends UserComponent_parent
 {
 
@@ -73,6 +73,7 @@ class UserComponent extends UserComponent_parent
                 $oTrack = oxNew(\rs\cookiemanager\Model\rs_cookie_manager_track::class);
                 $oTrack->assign($aData);
                 $oTrack->save();
+
             }
         }
     }

@@ -8,12 +8,13 @@ class rs_cookie_manager_track_list extends \OxidEsales\Eshop\Core\Model\ListMode
     {
         parent::__construct(\rs\cookiemanager\Model\rs_cookie_manager_track::class);
     }
-    
+
+
     public function getListItems($sCookieId)
     {
         $iLang = \OxidEsales\Eshop\Core\Registry::getLang()->getBaseLanguage();
         $iShop = $this->getConfig()->getShopId();
-                
+
         $oListObject = $this->getBaseObject();
         $sFieldList = $oListObject->getSelectFields();
         $sQ = "select $sFieldList from " . $oListObject->getViewName();

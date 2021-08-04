@@ -8,7 +8,7 @@ class rs_cookie_manager_list extends \OxidEsales\Eshop\Core\Model\ListModel
     {
         parent::__construct(\rs\cookiemanager\Model\rs_cookie_manager::class);
     }
-    
+
     /*
     public function selectString($sql, array $parameters = [])
     {

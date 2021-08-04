@@ -4,12 +4,12 @@ namespace rs\cookiemanager\Model;
 
 class rs_cookie_manager_item_list extends \OxidEsales\Eshop\Core\Model\ListModel
 {
-    
+
     public function __construct()
     {
         parent::__construct(\rs\cookiemanager\Model\rs_cookie_manager_item::class);
     }
-    
+
     public function getListItems($f_rs_cookie_manager)
     {
         $oListObject = $this->getBaseObject();
@@ -23,7 +23,7 @@ class rs_cookie_manager_item_list extends \OxidEsales\Eshop\Core\Model\ListModel
 
         return $this;
     }
-    
+
     /*
     public function selectString($sql, array $parameters = [])
     {
@@ -32,6 +32,6 @@ class rs_cookie_manager_item_list extends \OxidEsales\Eshop\Core\Model\ListModel
         return parent::selectString($sql, $parameters );
     }
     */
-    
-    
+
+
 }
